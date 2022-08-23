@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
    <link rel="stylesheet" href="css/style.min.css">
    <title>a200</title>
 </head>
+
 <body>
 
-   
-
+   <section class="startScreen hidd">
+      <h1>АДАПТИВНІСТЬ<span class="logoSpan">200</span></h1>
+   </section>
+   <section class="description hidd">
+      <h2>Методика оцінки адаптаційних здібностей особистості</h2>
+      <p>Опитувальник призначений для вивчення адаптаційних можливостей військовослужбовців на основі оцінки деяких
+         соціально-психологічних і психологічних характеристик особистості, що відображають інтегральні особливості
+         психічного і соціального розвитку. БОО „Адаптивність” використовується для вирішення задач визначення рівня
+         стійкості до бойового стресу.</p>
+      <p>У даному додатку використовується нова версія БОО „Адаптивність-200”, що містить 200 питань. Крім традиційних
+         шкал: ПР (психічна регуляція), КП (комунікативний потенціал) і МН (моральна нормативність) до даної версії
+         опитувальника увійшли додаткові шкали ВПС (військово-професійна спрямованість), ДАП (схильність до девіантних
+         форм поведінки) і СР (суїцидальний ризик).
+      </p>
+      <p>Зараз досліджуватимуться деякі Ваші особистісні особливості. Опитувальник містить 200 тверджень (питань) про
+         життя, роботу, відносини у сім'ї, інтереси і схильності. Ваше завдання полягає у тому, щоб визначити своє
+         відношення до кожного ствердження, тобто погодитися або не погодитися з ним.</p>
+      <div class="tac">
+         <button class="btn-green">ДАЛІ</button>
+      </div>
+   </section>
+   <section class="form">
+      <form>
+         <h2>Вкажіть Ваше ім'я</h2>
+         <input type="text" id="fulName" placeholder="ПІБ">
+         <h2>Вкажіть Ваш пол</h2>
+         <input type="radio" name="grnder" id="genderMan"> Чоловік
+         <input type="radio" name="grnder" id="genderWoman"> Жінка
+         
+      </form>
+   </section>
+   <section class="quiz hidd">
+      <div id="0" class="question animate__animated animate__backInRight">
+         <h2 class="question_num">42</h2>
+         <div class="question_text"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo illum aut eius beatae. Voluptas in ratione ullam nihil aliquam at. Assumenda quidem saepe dolore quam explicabo architecto facere nam quia?</p> </div>
+         <div class="question_btns df jcsa">
+            <button id="yes" class="btn-green">ТАК</button>
+            <button id="no" class="btn-red">НІ</button>
+         </div>
+      </div>
+   </section>
+<script src="js/main.js"></script>
 </body>
+
 </html>
