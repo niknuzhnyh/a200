@@ -33,27 +33,34 @@
          <button class="btn-green">ДАЛІ</button>
       </div>
    </section>
-   <section class="form">
+   <section class="form hidd">
       <form>
          <h2>Вкажіть Ваше ім'я</h2>
          <input type="text" id="fulName" placeholder="ПІБ">
          <h2>Вкажіть Ваш пол</h2>
          <input type="radio" name="grnder" id="genderMan"> Чоловік
          <input type="radio" name="grnder" id="genderWoman"> Жінка
-         
+         <input type="radio" id="contactChoice2" name="contact" value="phone">
+         <label for="contactChoice2">Phone</label>
+         <input type="radio" id="contactChoice2" name="contact" value="phone">
+         <label for="contactChoice2">Phone</label>
+
       </form>
    </section>
-   <section class="quiz hidd">
+   <section class="quiz">
       <div id="0" class="question animate__animated animate__backInRight">
          <h2 class="question_num">42</h2>
-         <div class="question_text"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo illum aut eius beatae. Voluptas in ratione ullam nihil aliquam at. Assumenda quidem saepe dolore quam explicabo architecto facere nam quia?</p> </div>
+         <div class="question_text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo illum aut eius beatae. Voluptas in ratione
+               ullam nihil aliquam at. Assumenda quidem saepe dolore quam explicabo architecto facere nam quia?</p>
+         </div>
          <div class="question_btns df jcsa">
             <button id="yes" class="btn-green">ТАК</button>
             <button id="no" class="btn-red">НІ</button>
          </div>
       </div>
    </section>
-<script src="js/main.js"></script>
+   <script src="js/main.js"></script>
 </body>
 
 </html>
