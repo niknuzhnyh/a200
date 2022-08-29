@@ -6,21 +6,16 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> -->
-   <!-- Compiled and minified CSS -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
    <link rel="stylesheet" href="css/style.min.css">
    <title>a200</title>
 </head>
 
 <body>
 
-   <section class="startScreen ">
-      <h1 class="tac">АДАПТИВНІСТЬ<span class="logoSpan">200</span></h1>
+   <section class="startScreen hidd">
+      <h1>АДАПТИВНІСТЬ<span class="logoSpan">200</span></h1>
    </section>
-
-   <section class="descriptionScreen  hidd">
+   <section class="description hidd">
       <h2>Методика оцінки адаптаційних здібностей особистості</h2>
       <p>Опитувальник призначений для вивчення адаптаційних можливостей військовослужбовців на основі оцінки деяких
          соціально-психологічних і психологічних характеристик особистості, що відображають інтегральні особливості
@@ -35,28 +30,37 @@
          життя, роботу, відносини у сім'ї, інтереси і схильності. Ваше завдання полягає у тому, щоб визначити своє
          відношення до кожного ствердження, тобто погодитися або не погодитися з ним.</p>
       <div class="tac">
-         <a class="waves-effect waves-light btn-small nextBtn">Далі</a>
+         <button class="btn-green">ДАЛІ</button>
       </div>
    </section>
+   <section class="form hidd">
+      <form>
+         <h2>Вкажіть Ваше ім'я</h2>
+         <input type="text" id="fulName" placeholder="ПІБ">
+         <h2>Вкажіть Ваш пол</h2>
+         <input type="radio" name="grnder" id="genderMan"> Чоловік
+         <input type="radio" name="grnder" id="genderWoman"> Жінка
+         <input type="radio" id="contactChoice2" name="contact" value="phone">
+         <label for="contactChoice2">Phone</label>
+         <input type="radio" id="contactChoice2" name="contact" value="phone">
+         <label for="contactChoice2">Phone</label>
 
-   <section class="interview hidd">
-
-      <div class="card_item df jcc">
-         <div class="card tac">
-            <div class="card-content">
-               <span class="card-title">Буває, що я серджуся</span>
-            </div>
-            <div class="card-action df jcsb">
-               <a class="waves-effect waves-light btn"><i class="material-icons right">check</i>Так</a>
-               <a class="waves-effect waves-light btn btn_red"><i class="material-icons right">close</i>Ні</a>
-            </div>
+      </form>
+   </section>
+   <section class="quiz">
+      <div id="0" class="question animate__animated animate__backInRight">
+         <h2 class="question_num">42</h2>
+         <div class="question_text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo illum aut eius beatae. Voluptas in ratione
+               ullam nihil aliquam at. Assumenda quidem saepe dolore quam explicabo architecto facere nam quia?</p>
+         </div>
+         <div class="question_btns df jcsa">
+            <button id="yes" class="btn-green">ТАК</button>
+            <button id="no" class="btn-red">НІ</button>
          </div>
       </div>
-
    </section>
-
-   <!-- Compiled and minified JavaScript -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   
    <script src="js/main.js"></script>
 </body>
 
