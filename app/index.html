@@ -20,25 +20,6 @@
       <h1 class="tac">АДАПТИВНІСТЬ<span class="logoSpan">200</span></h1>
    </section>
 
-   <section class="info_form hidd">
-      <div class="row">
-         <form class="col s12">
-            <div class="row">
-               <div class="input-field col s10">
-                  <input id="first_name" type="text" class="validate">
-                  <label for="first_name">Ім'я</label>
-               </div>
-            </div>
-            <div class="row">
-               <div class="input-field col s10">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Фамілія</label>
-               </div>
-            </div>
-         </form>
-      </div>
-   </section>
-
    <section class="descriptionScreen  hidd">
       <h2>Методика оцінки адаптаційних здібностей особистості</h2>
       <p>Опитувальник призначений для вивчення адаптаційних можливостей військовослужбовців на основі оцінки деяких
@@ -55,6 +36,54 @@
          відношення до кожного ствердження, тобто погодитися або не погодитися з ним.</p>
       <div class="tac">
          <a class="waves-effect waves-light btn-small nextBtn">Далі</a>
+      </div>
+   </section>
+
+   <section class="info_form hidd">
+      <div class="row">
+         <form class="col s12">
+            <h6>П.І.Б</h6>
+            <div class="row">
+               <div class="input-field col s10">
+                  <input id="first_name" type="text" required minlength="2" class="validate">
+                  <label for="first_name">Ім'я</label>
+               </div>
+            </div>
+            <div class="row">
+               <div class="input-field col s10">
+                  <input id="second_name" type="text" required minlength="2" class="validate">
+                  <label for="second_name">Побатькові</label>
+               </div>
+            </div>
+            <div class="row">
+               <div class="input-field col s10">
+                  <input id="last_name" type="text" required minlength="2" class="validate">
+                  <label for="last_name">Фамілія</label>
+               </div>
+            </div>
+            <div class="row">
+               <h6>Стать</h6>
+               <p>
+                  <label>
+                     <input class="with-gap" name="genderGroup" value="man" type="radio" />
+                     <span>Чоловік</span>
+                  </label>
+               </p>
+               <p>
+                  <label>
+                     <input class="with-gap" name="genderGroup" value="wooman" type="radio" />
+                     <span>Жінка</span>
+                  </label>
+               </p>
+            </div>
+            <div class="input-field">
+               <h6>Дата народження</h6>
+               <input id="birthdate" type="date" required class="datepicker">
+            </div>
+            <div class="tac">
+               <button id="formBtn" type="submit" class="waves-effect waves-light btn-small nextBtn" disabled >Далі</button>
+            </div>
+         </form>
       </div>
    </section>
 
