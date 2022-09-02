@@ -20,6 +20,9 @@ const noBtn = document.getElementById("no");
 //user object
 const userInfo = {};
 
+//answers object
+const answers = {};
+
 //card elements
 let questionCount = 1;
 const cardTitle = document.querySelector(".card-title");
@@ -63,28 +66,31 @@ formBtn.addEventListener("click", (evt) => {
    userInfo.birthdate = birthdate.value;
 
    localStorage.setItem("userInfo", JSON.stringify(userInfo));
-
-
 });
 
 
 // yes/no buttons
 yesBtn.addEventListener("click", () => {
-   questionItem.classList.remove("animate__backInRight");
-   questionItem.classList.add("animate__backOutLeft");
-   setTimeout(() => {
-      questionItem.classList.remove("animate__backOutLeft");
-      questionItem.classList.add("animate__backInRight");
-   }, 350);
+   answerHandler("animate__backOutLeft", true);
 });
 noBtn.addEventListener("click", () => {
-   questionItem.classList.remove("animate__backInRight");
-   questionItem.classList.add("animate__backOutDown");
-   setTimeout(() => {
-      questionItem.classList.remove("animate__backOutDown");
-      questionItem.classList.add("animate__backInRight");
-   }, 350);
+   answerHandler("animate__backOutDown", false);
 });
+
+function answerHandler(newClass, answer) {
+   questionItem.classList.remove("animate__backInRight");
+   questionItem.classList.add(newClass);
+   answers[questionCount] = answer;
+   questionCount++;
+   setTimeout(() => {
+      cardRender();
+   }, 200);
+   setTimeout(() => {
+      questionItem.classList.remove(newClass);
+      questionItem.classList.add("animate__backInRight");
+   }, 400);
+   localStorage.setItem("answers", JSON.stringify(answers));
+}
 
 
 //next buttons
@@ -101,7 +107,9 @@ for (let index = 0; index < nextBtns.length; index++) {
 
 
 // card render
-cardTitle.innerHTML = `${questionCount}. ${questions[questionCount]}`
+function cardRender() {
+   cardTitle.innerHTML = `${questionCount}. ${questions[questionCount]}`
+}
 
 
 //preloader
