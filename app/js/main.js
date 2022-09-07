@@ -1,7 +1,17 @@
 //sections
 const startScreen = document.querySelector(".startScreen");
-const descriptionScreen = document.querySelector(".descriptionScreen");
 const questionItem = document.querySelector(".card_item");
+
+//checking for a started test
+const userOld = localStorage.getItem("userInfo");
+const answersOld = localStorage.getItem("answers");
+console.log(userOld);
+console.log(answersOld);
+
+//Curent Section
+let curentSectionClassName = 'descriptionScreen';
+let curentSection = getCurentSection(curentSectionClassName);
+
 
 //form elements
 const first_name = document.getElementById("first_name");
@@ -27,7 +37,16 @@ const answers = {};
 let questionCount = 1;
 const cardTitle = document.querySelector(".card-title");
 
+// проверка на неоконченый тест
+if (answersOld) {
+   console.log ('допиши меня!!!')
+}
 
+//get Curent Section
+function getCurentSection(className) {
+   const currentScreen = document.querySelector(`.${className}`);
+   return currentScreen;
+}
 
 //validation
 for (let index = 0; index < genderGroup.length; index++) {
@@ -116,7 +135,7 @@ function cardRender() {
 function hidePreloader() {
    setTimeout(() => {
       startScreen.classList.add("hidd");
-      startScreen.nextElementSibling.classList.remove("hidd");
+      curentSection.classList.remove("hidd");
    }, 1000);
 }
 
