@@ -3,14 +3,11 @@ const startScreen = document.querySelector(".startScreen");
 const questionItem = document.querySelector(".card_item");
 
 //checking for a started test
-const userOld = localStorage.getItem("userInfo");
-const answersOld = localStorage.getItem("answers");
-console.log(userOld);
-console.log(answersOld);
+let userOld = JSON.parse(localStorage.getItem("userInfo"));
+let answersOld = JSON.parse(localStorage.getItem("answers"));
 
 //Curent Section
 let curentSectionClassName = 'descriptionScreen';
-let curentSection = getCurentSection(curentSectionClassName);
 
 
 //form elements
@@ -31,7 +28,7 @@ const noBtn = document.getElementById("no");
 const userInfo = {};
 
 //answers object
-const answers = {};
+let answers = {};
 
 //card elements
 let questionCount = 1;
@@ -39,8 +36,14 @@ const cardTitle = document.querySelector(".card-title");
 
 // проверка на неоконченый тест
 if (answersOld) {
-   console.log ('допиши меня!!!')
+   const continueMesage = 'У вас не закінчений тест';
+   const continueMesageinfo = `ПІБ : ${userOld.last_name} ${userOld.first_name} ${userOld.second_name} .<br> Бажаете продовжити ?`;
+   
+   curentSectionClassName = 'interview';
+   cardTitle.innerHTML = `${continueMesage}<br> ${continueMesageinfo}`;
+
 }
+
 
 //get Curent Section
 function getCurentSection(className) {
@@ -90,9 +93,15 @@ formBtn.addEventListener("click", (evt) => {
 
 // yes/no buttons
 yesBtn.addEventListener("click", () => {
+   if (answersOld) {
+      answerContinueHandler("animate__backOutLeft", true)
+   }
    answerHandler("animate__backOutLeft", true);
 });
 noBtn.addEventListener("click", () => {
+   if (answersOld) {
+      answerContinueHandler("animate__backOutDown", false)
+   }
    answerHandler("animate__backOutDown", false);
 });
 
@@ -109,6 +118,26 @@ function answerHandler(newClass, answer) {
       questionItem.classList.add("animate__backInRight");
    }, 400);
    localStorage.setItem("answers", JSON.stringify(answers));
+}
+
+function answerContinueHandler(newClass, answer) {
+   questionItem.classList.remove("animate__backInRight");
+   questionItem.classList.add(newClass);
+   if (answer) {
+      setTimeout(() => {
+         questionCount = Object.keys(answersOld).length;
+         questionCount++;
+         console.log(answersOld);
+         answers = answersOld;
+         answersOld = false;
+         cardRender();
+      }, 200);
+      setTimeout(() => {
+         questionItem.classList.remove(newClass);
+         questionItem.classList.add("animate__backInRight");
+      }, 400);
+      return;
+   }
 }
 
 
@@ -135,7 +164,7 @@ function cardRender() {
 function hidePreloader() {
    setTimeout(() => {
       startScreen.classList.add("hidd");
-      curentSection.classList.remove("hidd");
+      getCurentSection(curentSectionClassName).classList.remove("hidd");
    }, 1000);
 }
 
