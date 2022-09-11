@@ -1,6 +1,7 @@
 //sections
 const startScreen = document.querySelector(".startScreen");
 const questionItem = document.querySelector(".card_item");
+const descriptionScreen = document.querySelector(".descriptionScreen");
 
 //checking for a started test
 let userOld = JSON.parse(localStorage.getItem("userInfo"));
@@ -41,7 +42,6 @@ if (answersOld) {
    
    curentSectionClassName = 'interview';
    cardTitle.innerHTML = `${continueMesage}<br> ${continueMesageinfo}`;
-
 }
 
 
@@ -95,12 +95,14 @@ formBtn.addEventListener("click", (evt) => {
 yesBtn.addEventListener("click", () => {
    if (answersOld) {
       answerContinueHandler("animate__backOutLeft", true)
+      return;
    }
    answerHandler("animate__backOutLeft", true);
 });
 noBtn.addEventListener("click", () => {
    if (answersOld) {
       answerContinueHandler("animate__backOutDown", false)
+      return;
    }
    answerHandler("animate__backOutDown", false);
 });
@@ -125,9 +127,7 @@ function answerContinueHandler(newClass, answer) {
    questionItem.classList.add(newClass);
    if (answer) {
       setTimeout(() => {
-         questionCount = Object.keys(answersOld).length;
-         questionCount++;
-         console.log(answersOld);
+         questionCount = Object.keys(answersOld).length + 1;
          answers = answersOld;
          answersOld = false;
          cardRender();
@@ -138,6 +138,12 @@ function answerContinueHandler(newClass, answer) {
       }, 400);
       return;
    }
+   answersOld = false;
+   userOld = false;
+   localStorage.removeItem('answers');
+   localStorage.removeItem('userInfo');
+   questionCount = 1;
+   descriptionScreen.classList.remove("hidd");
 }
 
 
@@ -173,8 +179,6 @@ hidePreloader();
 // for (const key in questions) {
 //    if (Object.hasOwnProperty.call(questions, key)) {
 //       const element = questions[key];
-
 //       console.table(key, element);
-      
 //    }
 // }
